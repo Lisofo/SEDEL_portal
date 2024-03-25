@@ -1,0 +1,36 @@
+{
+    "nombreApp" : "portal_maqueta",
+    "rutas" : [
+        
+        {
+            "ruta" : "paginaCliente",
+            "icon" : "credit_score",
+            "texto": "Constancias de visita",
+            "categ": "CV"
+        },
+        {
+            "ruta" : "paginaCliente",
+            "icon" : "corporate_fare_rounded",
+            "texto": "Reportes mensuales",
+            "categ": "RM"
+        },
+        {
+            "ruta" : "paginaCliente",
+            "icon" : "my_library_books_rounded",
+            "texto": "Informes",
+            "categ": "INF"
+        },
+        {
+            "ruta" : "paginaCliente",
+            "icon" : "dashboard",
+            "texto": "Planos",
+            "categ": "PL"
+        },
+        {
+            "ruta": "paginaCliente",
+            "icon" : "dashboard_customize_outlined",
+            "texto": "Plan anual y protocolo",
+            "categ": "PAP"
+        }
+    ]
+}
