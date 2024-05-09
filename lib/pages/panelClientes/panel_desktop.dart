@@ -52,7 +52,6 @@ class _PanelClientesDesktopState extends State<PanelClientesDesktop> {
               )),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 52, 120, 62),
       body: Container(
         width: MediaQuery.of(context).size.width,
         color: Colors.white,
@@ -110,24 +109,19 @@ class _PanelClientesDesktopState extends State<PanelClientesDesktop> {
                     ],
                   )
                 ],
-              ),
-              SizedBox(
-                height: 170,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                color: Color.fromARGB(255, 52, 120, 62),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16, right: 16, top: 10, bottom: 5),
-                  child: Text(
-                    'Número de teléfono: 23623375 Int. 206 y 207 / celular: +598 98 409 523               Correo Electrónico: daiana@sedel.com.uy',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                  ),
-                ),
-              )
+              ),              
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        width: MediaQuery.of(context).size.width,
+        color: Color.fromARGB(255, 52, 120, 62),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 5),
+          child: Text(
+            'Número de teléfono: 23623375 Int. 206 y 207 / celular: +598 98 409 523               Correo Electrónico: daiana@sedel.com.uy',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
       ),

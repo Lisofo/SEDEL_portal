@@ -30,16 +30,20 @@ class _SeleccionDesktopState extends State<SeleccionDesktop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Image.asset('images/logoPortal.png'),
+        backgroundColor: Color.fromARGB(255, 52, 120, 62),
+        automaticallyImplyLeading: false,
+        actions: [
+          TextButton.icon(
+            onPressed: (){ logout(); }, 
+            icon: const Icon(Icons.logout,color: Colors.white,), 
+            label: const Text('Cerrar Sesión', style: TextStyle(color: Colors.white),)
+          ),
+        ],
+      ),
       body: Column(
         children: [
-          Container(
-              color: Color.fromARGB(255, 52, 120, 62),
-              child: Row(children: [
-                Image.asset('images/logoPortal.png'),
-              ])),
-          SizedBox(
-            height: 40,
-          ),
           Expanded(
               child: ListView.separated(
             itemCount: clientes.length,
@@ -75,13 +79,6 @@ class _SeleccionDesktopState extends State<SeleccionDesktop> {
           ))
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-          elevation: 0,
-          child: IconButton.filledTonal(
-              onPressed: () {
-                logout();
-              },
-              icon: Icon(Icons.logout))),
     );
   }
 
