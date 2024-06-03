@@ -16,7 +16,7 @@ class FooterMobile extends StatelessWidget {
           children: [
             TextButton(
                 style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
+                    foregroundColor: WidgetStatePropertyAll(Colors.white)),
                 onPressed: () {
                   Provider.of<MenuProvider>(context, listen: false)
                       .setPage('PT');
@@ -27,7 +27,7 @@ class FooterMobile extends StatelessWidget {
                 child: Text('Personal Tecnico de Sedel')),
             TextButton(
                 style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
+                    foregroundColor: WidgetStatePropertyAll(Colors.white)),
                 onPressed: () {
                   Provider.of<MenuProvider>(context, listen: false)
                       .setPage('PROD');
@@ -39,7 +39,7 @@ class FooterMobile extends StatelessWidget {
                 child: Text('Productos Plaguicidas / Desinfectantes / etc.')),
             TextButton(
                 style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
+                    foregroundColor: WidgetStatePropertyAll(Colors.white)),
                 onPressed: () {
                   Provider.of<MenuProvider>(context, listen: false)
                       .setPage('HAB');
@@ -50,7 +50,7 @@ class FooterMobile extends StatelessWidget {
                 child: Text('Habilitaciones de Sedel')),
             TextButton(
                 style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
+                    foregroundColor: WidgetStatePropertyAll(Colors.white)),
                 onPressed: () {
                   Provider.of<MenuProvider>(context, listen: false)
                       .setPage('NYC');

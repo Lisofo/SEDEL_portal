@@ -234,7 +234,7 @@ class _PanelClientesMobileState extends State<PanelClientesMobile> {
         child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
+                  WidgetStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
             ),
             onPressed: () {
               Provider.of<MenuProvider>(context, listen: false)
@@ -288,7 +288,7 @@ class _PanelClientesMobileState extends State<PanelClientesMobile> {
         child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
+                  WidgetStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
             ),
             onPressed: () {
               Provider.of<MenuProvider>(context, listen: false)

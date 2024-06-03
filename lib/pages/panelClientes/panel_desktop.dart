@@ -152,7 +152,7 @@ class _PanelClientesDesktopState extends State<PanelClientesDesktop> {
         child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
+                  WidgetStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
             ),
             onPressed: () {
               Provider.of<MenuProvider>(context, listen: false)
@@ -206,7 +206,7 @@ class _PanelClientesDesktopState extends State<PanelClientesDesktop> {
         child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
+                  WidgetStatePropertyAll(Color.fromARGB(255, 52, 120, 62)),
             ),
             onPressed: () {
               Provider.of<MenuProvider>(context, listen: false)

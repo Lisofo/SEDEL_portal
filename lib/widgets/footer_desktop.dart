@@ -16,7 +16,7 @@ class FooterDesktop extends StatelessWidget {
             Flexible(
               child: TextButton(
                   style: ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.black)),
+                      foregroundColor: WidgetStatePropertyAll(Colors.black)),
                   onPressed: () {
                     Provider.of<MenuProvider>(context, listen: false)
                         .setPage('PT');
@@ -33,7 +33,7 @@ class FooterDesktop extends StatelessWidget {
             Flexible(
               child: TextButton(
                   style: ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.black)),
+                      foregroundColor: WidgetStatePropertyAll(Colors.black)),
                   onPressed: () {
                     Provider.of<MenuProvider>(context, listen: false)
                         .setPage('PROD');
@@ -51,7 +51,7 @@ class FooterDesktop extends StatelessWidget {
             Flexible(
               child: TextButton(
                   style: ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.black)),
+                      foregroundColor: WidgetStatePropertyAll(Colors.black)),
                   onPressed: () {
                     Provider.of<MenuProvider>(context, listen: false)
                         .setPage('HAB');
@@ -68,7 +68,7 @@ class FooterDesktop extends StatelessWidget {
             Flexible(
               child: TextButton(
                   style: ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.black)),
+                      foregroundColor: WidgetStatePropertyAll(Colors.black)),
                   onPressed: () {
                     Provider.of<MenuProvider>(context, listen: false)
                         .setPage('NYC');

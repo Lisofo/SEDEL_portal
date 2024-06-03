@@ -3,6 +3,8 @@ import 'package:portal_maqueta/providers/menu_providers.dart';
 import 'package:portal_maqueta/routes/rutas.dart';
 import 'package:provider/provider.dart';
 
+import 'config/theme/theme.dart';
+
 void main() async {
   runApp(ChangeNotifierProvider(
     create: (_) => MenuProvider(),
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme(selectedColor: 0);
     return MaterialApp(
+      theme: appTheme.getTheme(),
       debugShowCheckedModeBanner: false,
       title: 'Portal SEDEL',
       initialRoute: '/',

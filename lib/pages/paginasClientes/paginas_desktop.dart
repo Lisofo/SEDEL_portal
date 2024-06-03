@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_maqueta/models/constanciasVisita.dart';
 import 'package:portal_maqueta/providers/menu_providers.dart';
@@ -19,6 +20,7 @@ class _PaginasClientesDesktopState extends State<PaginasClientesDesktop> {
   late String categ = '';
   late String tituloPage = '';
   ScrollController _scrollController = ScrollController();
+  int groupValue = 0;
 
   @override
   void initState() {
@@ -40,90 +42,91 @@ class _PaginasClientesDesktopState extends State<PaginasClientesDesktop> {
     }
   }
 
-  listaPDF2() {
+  listaAnteriores() {
+    final colors = Theme.of(context).colorScheme;
     return !yaCargo
-        ? const Center(
-            child: CircularProgressIndicator(),
-          )
-        : Expanded(
-            child: documentos!.isEmpty
-                ? const Center(
-                    child: Text(
-                      'Sin datos',
-                      style: TextStyle(
-                          fontSize: 38,
-                          fontWeight: FontWeight.w200,
-                          color: Colors.grey),
-                    ),
-                  )
-                : Scrollbar(
-                    controller: _scrollController,
-                    thumbVisibility: true,
-                    trackVisibility: true,
-                    child: ListView.separated(
-                      controller: _scrollController,
-                      itemCount: documentos!.length,
-                      itemBuilder: (context, i) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 150),
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.article,
-                              color: Color.fromARGB(255, 52, 120, 62),
-                            ),
-                            title: Text(documentos![i].nombre),
-                            onTap: () async {
-                              final url = Uri.parse(documentos![i].url);
-                              if (await canLaunchUrl(url)) {
-                                await launchUrl(url);
-                              }
-                            },
-                            trailing: IconButton(
-                                icon: Icon(
-                                  Icons.picture_as_pdf,
-                                  color: Color.fromARGB(255, 52, 120, 62),
-                                ),
-                                onPressed: () async {
-                                  final url = Uri.parse(documentos![i].url);
-                                  if (await canLaunchUrl(url)) {
-                                    await launchUrl(url);
-                                  }
-                                }),
+      ? const Center(child: CircularProgressIndicator(),)
+      : Expanded(
+          child: documentos!.isEmpty
+            ? const Center(
+                child: Text(
+                  'Sin datos',
+                  style: TextStyle(
+                      fontSize: 38,
+                      fontWeight: FontWeight.w200,
+                      color: Colors.grey),
+                ),
+              )
+            : Scrollbar(
+                controller: _scrollController,
+                thumbVisibility: true,
+                trackVisibility: true,
+                child: ListView.separated(
+                  controller: _scrollController,
+                  itemCount: documentos!.length,
+                  itemBuilder: (context, i) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 150),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.article,
+                          color: colors.primary,
+                        ),
+                        title: Text(documentos![i].nombre),
+                        onTap: () async {
+                          final url = Uri.parse(documentos![i].url);
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          }
+                        },
+                        trailing: IconButton(
+                          icon: Icon(
+                            Icons.picture_as_pdf,
+                            color: colors.primary,
                           ),
-                        );
-                      },
-                      separatorBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 150),
-                          child: Divider(
-                            thickness: 3,
-                            color: Colors.green,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-          );
+                          onPressed: () async {
+                            final url = Uri.parse(documentos![i].url);
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url);
+                            }
+                          }
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 150),
+                      child: Divider(
+                        thickness: 3,
+                        color: colors.secondary,
+                      ),
+                    );
+                  },
+                ),
+              ),
+        );
   }
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
       floatingActionButton: CircleAvatar(
         radius: 32,
         backgroundColor: Colors.white,
         child: CircleAvatar(
           radius: 30,
-          backgroundColor: Color.fromARGB(255, 52, 120, 62),
+          backgroundColor: colors.primary,
           child: IconButton(
-              onPressed: () {
-                Navigator.popUntil(
-                    context, ModalRoute.withName('panelClientes'));
-              },
-              icon: Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.white,
-              )),
+            onPressed: () {
+              Navigator.popUntil(context, ModalRoute.withName('panelClientes'));
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+            )
+          ),
         ),
       ),
       body: Container(
@@ -131,50 +134,75 @@ class _PaginasClientesDesktopState extends State<PaginasClientesDesktop> {
         child: Column(
           children: [
             Container(
-                color: Color.fromARGB(255, 52, 120, 62),
-                child: Header(cliente: context.watch<MenuProvider>().client)),
-            SizedBox(
-              height: 30,
+              color: colors.primary,
+              child: Header(cliente: context.watch<MenuProvider>().client)
             ),
+            SizedBox(height: 15,),
             Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 52, 120, 62),
-                  borderRadius: BorderRadius.circular(5)),
+                color: colors.primary,
+                borderRadius: BorderRadius.circular(5)
+              ),
               child: Text(
                 tituloPage,
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold
+                ),
               ),
             ),
-            SizedBox(
-              height: 50,
+            CupertinoSegmentedControl<int>(
+              padding: const EdgeInsets.all(10),
+              groupValue: groupValue,
+              borderColor: Colors.black,
+              selectedColor: colors.primary,
+              unselectedColor: Colors.white,
+              children: {
+                0: buildSegment('Anteriores'),
+                1: buildSegment('Actuales'),
+              },
+              onValueChanged: (newValue) {
+                setState(() {
+                  groupValue = newValue;
+                });
+              },
             ),
-            listaPDF2(),
-            SizedBox(
-              height: 100,
-            ),
+            SizedBox(height: 50,),
+            if(groupValue == 0)...[
+              listaAnteriores(),
+            ]else if(groupValue == 1)...[
+              
+            ],
+            SizedBox(height: 100,),
           ],
         ),
       ),
       persistentFooterButtons: [
         Container(
           width: MediaQuery.of(context).size.width,
-          color: Color.fromARGB(255, 52, 120, 62),
+          color: colors.primary,
           child: Padding(
-            padding:
-                const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 5),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 5),
             child: Text(
               'Número de teléfono: 23623375 / +598 98 409 523                Correo Electrónico: sedel@sedel.com.uy',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ),
         )
       ],
       backgroundColor: Color.fromARGB(255, 52, 120, 62),
+    );
+  }
+
+  Widget buildSegment(String text) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 15),
+      ),
     );
   }
 }
