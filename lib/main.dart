@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portal_maqueta/providers/menu_providers.dart';
 import 'package:portal_maqueta/routes/rutas.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 import 'config/theme/theme.dart';
 
@@ -24,6 +26,15 @@ class MyApp extends StatelessWidget {
       title: 'Portal SEDEL',
       initialRoute: '/',
       routes: getAppRoute(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('es'), // Spanish
+        Locale('en'), // English
+      ],
     );
   }
 }

@@ -30,10 +30,8 @@ class LoginServices {
 
       if (statusCode == 200) {
         print(response.data['token']);
-        Provider.of<MenuProvider>(context, listen: false)
-            .setToken(response.data['token']);
-        Provider.of<MenuProvider>(context, listen: false)
-            .setUId(response.data['uid'].toString());
+        Provider.of<MenuProvider>(context, listen: false).setToken(response.data['token']);
+        Provider.of<MenuProvider>(context, listen: false).setUId(response.data['uid'].toString());
       } else {
         print(response.statusMessage);
       }

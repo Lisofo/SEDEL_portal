@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portal_maqueta/models/constanciasVisita.dart';
+import 'package:portal_maqueta/models/doc_portal.dart';
 import 'package:portal_maqueta/providers/menu_providers.dart';
-import 'package:portal_maqueta/services/cv_services.dart';
+import 'package:portal_maqueta/services/portal_services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

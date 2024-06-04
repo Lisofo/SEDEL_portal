@@ -5,7 +5,7 @@ import 'package:portal_maqueta/widgets/icon_string.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/servicios_contratados.dart';
-import '../../services/cv_services.dart';
+import '../../services/portal_services.dart';
 
 class PanelClientesMobile extends StatefulWidget {
   const PanelClientesMobile({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portal_maqueta/models/clients.dart';
 import 'package:portal_maqueta/models/servicios_contratados.dart';
 import 'package:portal_maqueta/providers/menu_providers.dart';
-import 'package:portal_maqueta/services/cv_services.dart';
+import 'package:portal_maqueta/services/portal_services.dart';
 import 'package:portal_maqueta/widgets/headers.dart';
 import 'package:portal_maqueta/widgets/icon_string.dart';
 import 'package:provider/provider.dart';

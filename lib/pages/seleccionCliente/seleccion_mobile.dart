@@ -3,7 +3,7 @@ import 'package:portal_maqueta/models/clients.dart';
 import 'package:portal_maqueta/providers/menu_providers.dart';
 import 'package:provider/provider.dart';
 
-import '../../services/cv_services.dart';
+import '../../services/portal_services.dart';
 
 class SeleccionMobile extends StatefulWidget {
   const SeleccionMobile({super.key});
