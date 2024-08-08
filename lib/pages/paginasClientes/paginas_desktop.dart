@@ -342,6 +342,7 @@ class _PaginasClientesDesktopState extends State<PaginasClientesDesktop> {
   Future<void> buscar(String token) async {
     final clienteSeleccionado = context.read<MenuProvider>().client;
     print(clienteSeleccionado.clienteId.toString());
+    print(categ);
     String fechaDesde = DateFormat('yyyy-MM-dd', 'es').format(selectedDate.start);
     String fechaHasta = DateFormat('yyyy-MM-dd', 'es').format(selectedDate.end);
 
@@ -349,7 +350,8 @@ class _PaginasClientesDesktopState extends State<PaginasClientesDesktop> {
       context, 
       clienteSeleccionado.clienteId, 
       fechaDesde, 
-      fechaHasta, 
+      fechaHasta,
+      categ,
       token
     );
 

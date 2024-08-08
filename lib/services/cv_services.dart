@@ -33,9 +33,9 @@ class ConstanciaVisitaServices {
     );
   }
 
-  Future getCVs(BuildContext context, int clienteId, String fechaDesde, String fechaHasta, String token) async {
+  Future getCVs(BuildContext context, int clienteId, String fechaDesde, String fechaHasta, String categ, String token) async {
     bool yaTieneFiltro = false;
-    String link = '$apiLink$clienteId/informes/cv';
+    String link = '$apiLink$clienteId/informes/$categ';
     if (fechaDesde != '') {
       link += '?fechaDesde=$fechaDesde';
       yaTieneFiltro = true;

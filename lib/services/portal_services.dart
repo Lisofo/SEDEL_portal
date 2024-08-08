@@ -67,9 +67,7 @@ class PortalServices {
         ),
       );
       final List<dynamic> serviceList = resp.data;
-      return serviceList
-          .map((obj) => ServiciosContratados.fromJson(obj))
-          .toList();
+      return serviceList.map((obj) => ServiciosContratados.fromJson(obj)).toList();
     } catch (e) {
       print(e);
       return [];

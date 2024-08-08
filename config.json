@@ -1,4 +1,4 @@
 {
-    "APIURL":"http://sap.com.uy:30009/",
+    "APIURL":"https://sedeltest.sap.com.uy/",
     "APIFSURL":"http://sap.com.uy:30010/"
 }
