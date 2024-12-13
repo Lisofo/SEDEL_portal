@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:portal_maqueta/services/login_services.dart';
 
 class LoginMobile extends StatefulWidget {
@@ -67,108 +68,125 @@ class _LoginMobileState extends State<LoginMobile> {
                 ),
                 const SizedBox(height: 35),
                 Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                            controller: usernameController,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide(),
-                                    borderRadius: BorderRadius.circular(20)),
-                                fillColor: Colors.white,
-                                filled: true,
-                                prefixIcon: Icon(Icons.person),
-                                prefixIconColor:
-                                    Color.fromARGB(255, 41, 146, 41),
-                                hintText: 'Ingrese su usuario'),
-                            validator: (value) {
-                              if (value!.isEmpty || value.trim().isEmpty) {
-                                return 'Ingrese un usuario valido';
-                              }
-                              return null;
-                            },
-                            onSaved: (newValue) => user = newValue!),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        TextFormField(
-                            controller: passwordController,
-                            obscureText: isObscured,
-                            focusNode: passwordFocusNode,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide(),
-                                    borderRadius: BorderRadius.circular(20)),
-                                fillColor: Colors.white,
-                                filled: true,
-                                prefixIcon: Icon(Icons.lock),
-                                prefixIconColor:
-                                    Color.fromARGB(255, 41, 146, 41),
-                                suffixIcon: IconButton(
-                                  padding:
-                                      EdgeInsetsDirectional.only(end: 12.0),
-                                  icon: isObscured
-                                      ? Icon(
-                                          Icons.visibility_off,
-                                          color: Colors.black,
-                                        )
-                                      : Icon(Icons.visibility,
-                                          color: Colors.black),
-                                  onPressed: () {
-                                    setState(() {
-                                      isObscured = !isObscured;
-                                    });
-                                  },
-                                ),
-                                hintText: 'Ingrese su contraseña'),
-                            validator: (value) {
-                              if (value!.isEmpty || value.trim().isEmpty) {
-                                return 'Ingrese su contraseña';
-                              }
-                              if (value.length < 6) {
-                                return 'Contraseña invalida';
-                              }
-                              return null;
-                            },
-                            onFieldSubmitted: (value) async {
-                              await login(context);
-                            },
-                            onSaved: (newValue) => pass = newValue!),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                WidgetStatePropertyAll(Colors.white),
-                            elevation: WidgetStatePropertyAll(10),
-                            shape: WidgetStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.horizontal(
-                                  left: Radius.circular(50),
-                                  right: Radius.circular(50),
-                                ),
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                          controller: usernameController,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(),
+                                  borderRadius: BorderRadius.circular(20)),
+                              fillColor: Colors.white,
+                              filled: true,
+                              prefixIcon: Icon(Icons.person),
+                              prefixIconColor:
+                                  Color.fromARGB(255, 41, 146, 41),
+                              hintText: 'Ingrese su usuario'),
+                          validator: (value) {
+                            if (value!.isEmpty || value.trim().isEmpty) {
+                              return 'Ingrese un usuario valido';
+                            }
+                            return null;
+                          },
+                          onSaved: (newValue) => user = newValue!),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                          controller: passwordController,
+                          obscureText: isObscured,
+                          focusNode: passwordFocusNode,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(),
+                                  borderRadius: BorderRadius.circular(20)),
+                              fillColor: Colors.white,
+                              filled: true,
+                              prefixIcon: Icon(Icons.lock),
+                              prefixIconColor:
+                                  Color.fromARGB(255, 41, 146, 41),
+                              suffixIcon: IconButton(
+                                padding:
+                                    EdgeInsetsDirectional.only(end: 12.0),
+                                icon: isObscured
+                                    ? Icon(
+                                        Icons.visibility_off,
+                                        color: Colors.black,
+                                      )
+                                    : Icon(Icons.visibility,
+                                        color: Colors.black),
+                                onPressed: () {
+                                  setState(() {
+                                    isObscured = !isObscured;
+                                  });
+                                },
                               ),
-                            ),
-                          ),
-                          onPressed: () async {
+                              hintText: 'Ingrese su contraseña'),
+                          validator: (value) {
+                            if (value!.isEmpty || value.trim().isEmpty) {
+                              return 'Ingrese su contraseña';
+                            }
+                            if (value.length < 6) {
+                              return 'Contraseña invalida';
+                            }
+                            return null;
+                          },
+                          onFieldSubmitted: (value) async {
                             await login(context);
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.5),
-                            child: Text(
-                              'Iniciar Sesión',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 52, 120, 62),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
+                          onSaved: (newValue) => pass = newValue!),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStatePropertyAll(Colors.white),
+                          elevation: WidgetStatePropertyAll(10),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(50),
+                                right: Radius.circular(50),
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    )),
+                        onPressed: () async {
+                          await login(context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.5),
+                          child: Text(
+                            'Iniciar Sesión',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 52, 120, 62),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ),
+                const SizedBox(height: 30,),
+                Center(
+                  child: FutureBuilder(
+                    future: PackageInfo.fromPlatform(),
+                    builder: (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          'Versión ${snapshot.data!.version} (Build ${snapshot.data!.buildNumber})',
+                          style: const TextStyle(color: Colors.black),
+                        );
+                      } else {
+                        return const Text('Cargando la web...');
+                      }
+                    }
+                  ),
+                )
               ],
             ),
           ),
