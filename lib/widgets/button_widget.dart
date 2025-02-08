@@ -14,11 +14,16 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-              borderRadius: BorderRadius.horizontal(
-                  left: Radius.circular(50), right: Radius.circular(50)))),
-          backgroundColor: WidgetStatePropertyAll(Colors.white),
-          elevation: WidgetStatePropertyAll(10)),
+        shape: WidgetStatePropertyAll( 
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.horizontal(
+              left: Radius.circular(50), right: Radius.circular(50)
+            )
+          )
+        ),
+        backgroundColor: WidgetStatePropertyAll(Colors.white),
+        elevation: WidgetStatePropertyAll(10)
+      ),
       onPressed: onClicked,
       child: Text(
         text,

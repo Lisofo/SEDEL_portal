@@ -11,34 +11,34 @@ String informeToJson(List<ConstanciaVisita> data) => json.encode(List<dynamic>.f
 class ConstanciaVisita {
   late String filename;
   late String filepath;
-  late int ordenTrabajoId;
-  late DateTime fechaOrdenTrabajo;
+  late int? ordenTrabajoId;
+  late DateTime fecha;
 
   ConstanciaVisita({
     required this.filename,
     required this.filepath,
     required this.ordenTrabajoId,
-    required this.fechaOrdenTrabajo,
+    required this.fecha,
   });
 
   factory ConstanciaVisita.fromJson(Map<String, dynamic> json) => ConstanciaVisita(
     filename: json["filename"] as String? ?? '',
     filepath: json["filepath"] as String? ?? '',
-    ordenTrabajoId: json["ordenTrabajoId"] as int? ?? 0,
-    fechaOrdenTrabajo: DateTime.parse(json["fechaOrdenTrabajo"]),
+    ordenTrabajoId: json["ordenTrabajoId"] != null ? json["ordenTrabajoId"] : null ,
+    fecha: DateTime.parse(json["fecha"]),
   );
 
   Map<String, dynamic> toJson() => {
     "filename": filename,
     "filepath": filepath,
     "ordenTrabajoId": ordenTrabajoId,
-    "fechaOrdenTrabajo": fechaOrdenTrabajo.toIso8601String(),
+    "fechaOrdenTrabajo": fecha.toIso8601String(),
   };
 
   ConstanciaVisita.empty(){
     filename = '';
     filepath = '';
     ordenTrabajoId = 0;
-    fechaOrdenTrabajo = DateTime.now();
+    fecha = DateTime.now();
   }
 }
