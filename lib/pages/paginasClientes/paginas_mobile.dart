@@ -321,8 +321,9 @@ class _PaginasClientesMobileState extends State<PaginasClientesMobile> {
                       onPressed: () async{
                         final pickedDate = await showDateRangePicker(
                           context: context,
-                          firstDate: DateTime(2023),
-                          lastDate: DateTime(2025)
+                          firstDate: DateTime(2022),
+                          lastDate: DateTime(2099),
+                          currentDate: DateTime.now()
                         );
                         if (pickedDate != null && pickedDate != selectedDate) {
                           setState(() {
